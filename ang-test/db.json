@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Petya",
+      "email": "Petya@mail.ru",
+      "phone": "(920) 125-6244"
+    },
+    {
+      "id": 2,
+      "firstName": "Olya",
+      "email": "Olya@mail.ru",
+      "phone": "(910) 222-3344"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "userId": "Petya@mail.ru",
+      "topId": "sls",
+      "mes": "Продайте пылесос!"
+    },
+    {
+      "id": 2,
+      "userId": "Olya@mail.ru",
+      "topId": "els",
+      "mes": "HELP!"
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "topId": "sls",
+      "topic": "Продажи"
+    },
+    {
+      "id": 2,
+      "topId": "tec",
+      "topic": "Техподдержка"
+    },
+    {
+      "id": 3,
+      "topId": "els",
+      "topic": "Другое"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+<div class="container" [hidden]='isHidden'>
+  <form [formGroup]="feedbackForm" (ngSubmit)="submit()" class="card">
+    <h1>Напишите нам</h1>
+    <hr>
+
+    <div class="form-control">
+      <label>Имя</label>
+      <input type="text" placeholder="Ваше имя" formControlName="name">
+
+      <div
+        *ngIf="feedbackForm.get('name')!.invalid && feedbackForm.get('name')!.touched"
+        class="validation"
+      >
+        <small *ngIf="feedbackForm.get('name')!.errors!.required">
+          Поле "Имя" не может быть пустым
+        </small>
+
+        <small *ngIf="feedbackForm.get('name')!.errors!.minlength">
+          Минимальное количество символов - 3
+        </small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Email</label>
+      <input type="text" placeholder="Email" formControlName="email">
+
+      <div
+        *ngIf="feedbackForm.get('email')!.invalid && feedbackForm.get('email')!.touched"
+        class="validation"
+      >
+        <small *ngIf="feedbackForm.get('email')!.errors!.required">
+          Поле "email" не может быть пустым
+        </small>
+
+        <small *ngIf="feedbackForm.get('email')!.errors!.email">
+          Введите корректный email
+        </small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Телефон</label>
+      <p-inputMask placeholder="(999) 999-9999" formControlName="phone" mask="(999) 999-9999"></p-inputMask>
+
+      <div
+        *ngIf="feedbackForm.get('phone')!.invalid && feedbackForm.get('phone')!.touched"
+        class="validation"
+      >
+        <small *ngIf="feedbackForm.get('phone')!.errors!.required">
+          Введите корретный номер телефона
+        </small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Тема</label>
+
+      <select formControlName="prob">
+        <option *ngFor="let dataItem of topicList" value="{{dataItem.TopicName}}">{{dataItem.TopicValue}}</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label>Ваше сообщение:
+        <textarea formControlName="disc"></textarea>
+      </label>
+
+      <div
+        *ngIf="feedbackForm.get('disc')!.invalid && feedbackForm.get('disc')!.touched"
+        class="validation"
+      >
+        <small *ngIf="feedbackForm.get('disc')!.errors!.required">
+          Поле "Ваше сообщение" не может быть пустым
+        </small>
+      </div>
+    </div>
+
+    <div class="recap">
+      <ngx-recaptcha2 #captchaElem
+                      [siteKey]="siteKey"
+                      formControlName="recaptcha">
+      </ngx-recaptcha2>
+    </div>
+
+    <button class="btn" type="submit" [disabled]="feedbackForm.invalid">Отправить письмо</button>
+
+  </form>
+</div>
+
+<router-outlet></router-outlet>
+
+
+

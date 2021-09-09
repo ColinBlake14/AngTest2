@@ -1,0 +1,30 @@
+<div class="container">
+    <form [formGroup]="feedbackFormValue" class="card">
+      <h1>Сообщение пользователя успешно зарегистрировано!</h1>
+      <hr>
+  
+      <div class="form-control">
+        <label>Имя</label>
+        <input type="text" formControlName="name" readonly>
+      </div>
+  
+      <div class="form-control">
+        <label>Email</label>
+        <input type="text" formControlName="email" readonly>
+      </div>
+  
+      <div class="form-control">
+        <label>Телефон</label>
+        <p-inputMask formControlName="phone" mask="(999) 999-9999" aria-readonly="true"></p-inputMask>
+      </div>
+  
+      <div class="form-control">
+        <label>Ваше сообщение:
+          <textarea formControlName="disc" readonly></textarea>
+        </label>
+      </div>
+
+      <button class="btn" type="button" (click)="onClick()">Вернуться</button>
+  
+    </form>
+</div>
